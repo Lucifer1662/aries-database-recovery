@@ -28,4 +28,9 @@ class DirtyTable:
         return self.pages[pageID]
 
     def __str__(self):
-        return ""
+        s = "Dirty Page Table\n"
+        s += "(Page ID, recLSN)\n" 
+        for pageID in self.pages:
+            LSN = self.pages[pageID]
+            s += "("+str(pageID)+","+ str(LSN) + ")\n"
+        return s
