@@ -15,6 +15,8 @@ class Log:
         s = str(self.LSN) + " " + str(self.type)
         if(self.type == "UPDATE"):
             return s + " T"+str(self.transactionID) + " writes P" + str(self.pageID) + ", prevLSN=" + str(self.prevLSN) 
+        if(self.type == "END"):
+            return s + " T"+str(self.transactionID)
         if(self.type == "ABORT"):
              return s + " T"+str(self.transactionID)
         if(self.type == "CLR"):
