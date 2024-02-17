@@ -3,25 +3,25 @@ class TransactionTable:
     def __init__(self):
         self.transactions = {}
 
-    def updateTransction(self, transactionID:int, status:str, LSN:int):
-        self.transactions[transactionID] = (transactionID, status, LSN)
+    def update_transaction(self, transaction_id:int, status:str, lsn:int):
+        self.transactions[transaction_id] = (transaction_id, status, lsn)
             
     
-    def removeTransaction(self, transactionID:int):
-        if transactionID in self.transactions :
-            self.transactions.pop(transactionID)
+    def remove_transaction(self, transaction_id:int):
+        if transaction_id in self.transactions :
+            self.transactions.pop(transaction_id)
 
-    def listOfTransactionLSNs(self):
+    def list_of_transaction_lsns(self):
         lsns = []
-        for transactionID in self.transactions:
-            lsns.append(self.transactions[transactionID][2])
+        for transaction_id in self.transactions:
+            lsns.append(self.transactions[transaction_id][2])
         return lsns
 
     
     def __str__(self):
         s = "Transaction Table\n"
-        s += "(Transaction ID, Status, Last LSN)\n" 
-        for transactionID in self.transactions:
-            tran = self.transactions[transactionID]
+        s += "(Transaction ID, Status, Last lsn)\n" 
+        for transaction_id in self.transactions:
+            tran = self.transactions[transaction_id]
             s += str(tran) + "\n"
         return s

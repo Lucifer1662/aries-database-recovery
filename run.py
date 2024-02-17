@@ -16,7 +16,7 @@ def main():
     db.log.log(60, 20, 2, "UPDATE", 1, None, None)
     
     db.lastCheckPoint = CheckPoint(0,1, DirtyTable(), TransactionTable())
-    db.crachReocover()
+    db.crash_recover()
 
     print(db)
 
