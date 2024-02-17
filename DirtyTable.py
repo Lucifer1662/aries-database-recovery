@@ -32,5 +32,5 @@ class DirtyTable:
         s += "(Page ID, recLSN)\n" 
         for page_id in self.page_object:
             lsn = self.page_object[page_id]
-            s += "("+str(page_id)+","+ str(lsn) + ")\n"
+            s += "("+"P"+str(page_id)+","+ str(lsn) + ")\n"
         return s

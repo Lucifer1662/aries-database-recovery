@@ -23,5 +23,5 @@ class TransactionTable:
         s += "(Transaction ID, Status, Last lsn)\n" 
         for transaction_id in self.transactions:
             tran = self.transactions[transaction_id]
-            s += str(tran) + "\n"
+            s += "(" + "T" +str(tran[0])+ "," + str(tran[1]) + "," + str(tran[2])+ ")" + "\n"
         return s
