@@ -15,7 +15,7 @@ class DB:
     def crash_recover(self):
         from Aries import Aries
         aries = Aries(self)
-        aries.recover(self.lastCheckPoint)
+        aries.recover(self.last_checkpoint)
 
 
     def write_log(self, prev_lsn: int, transaction_id:int, type:str, page_id:int, undo_lsn:int, undo_next_lsn:int):
