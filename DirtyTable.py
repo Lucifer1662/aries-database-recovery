@@ -1,36 +1,36 @@
 class DirtyTable:
 
     def __init__(self):
-        self.pages = {}
+        self.page_object = {}
 
-    def dirtyPage(self, pageID:int, LSN:int):
-        if not pageID in self.pages :
-            self.pages[pageID] = LSN
+    def dirty_page(self, page_id:int, lsn:int):
+        if page_id not in self.page_object :
+            self.page_object[page_id] = lsn
     
-    def unDirtyPage(self, pageID:int):
-        if pageID in self.pages :
-            self.pages.pop(pageID)
+    def undirty_page(self, page_id:int):
+        if page_id in self.page_object :
+            self.page_object.pop(page_id)
 
-    def smallestRecLSN(self):
-        smallestLSN = 100000000000
+    def smallest_rec_lsn(self):
+        smallest_lsn = 100000000000
 
-        for pageID in self.pages:
-            LSN = self.pages[pageID]
-            if LSN < smallestLSN :
-                smallestLSN = LSN
+        for page_id in self.page_object:
+            lsn = self.page_object[page_id]
+            if lsn < smallest_lsn :
+                smallest_lsn = lsn
 
-        return smallestLSN
+        return smallest_lsn
 
-    def exists(self, pageID):
-        return pageID in self.pages.keys()
+    def exists(self, page_id):
+        return page_id in self.page_object.keys()
 
-    def getrecLSN(self, pageID):
-        return self.pages[pageID]
+    def get_rec_lsn(self, page_id):
+        return self.page_object[page_id]
 
     def __str__(self):
         s = "Dirty Page Table\n"
         s += "(Page ID, recLSN)\n" 
-        for pageID in self.pages:
-            LSN = self.pages[pageID]
-            s += "("+str(pageID)+","+ str(LSN) + ")\n"
+        for page_id in self.page_object:
+            lsn = self.page_object[page_id]
+            s += "("+"P"+str(page_id)+","+ str(lsn) + ")\n"
         return s
